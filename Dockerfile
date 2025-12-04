@@ -1,26 +1,19 @@
-# Use official Maven image to build the project
-FROM maven:3.9.4-eclipse-temurin-17 AS build
+# Use Maven with Java 21 to build the project
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy entire project
-COPY . .
+COPY pom.xml .
+COPY src ./src
 
-# Build the Spring Boot JAR
 RUN mvn -B -DskipTests package
 
 
-# ----------- RUNTIME IMAGE -----------
-FROM eclipse-temurin:17
+# Run the built JAR using Java 21 image
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
-
-# Copy the JAR from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose port
-EXPOSE 8080
-
-# Start the application
-ENTRYPOINT ["java","-jar","app.jar"]
+EXPOSE 8081
+ENTRYPOINT ["java", "-jar", "app.jar"]
