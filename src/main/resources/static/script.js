@@ -4,7 +4,8 @@ async function searchWeather() {
 
     let city = document.getElementById("city").value;
 
-    const response = await fetch(`http://localhost:8081/api/weather?city=${city}`);
+    const response = await fetch("/api/weather?city=" + city);
+
     const data = await response.json();
 
     if (data.cod === "404") {
