@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "Poppins-Medium";
+    src: url("Poppins-Medium.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins-Medium";
+}
+body{
+    background-color: darkslategrey;
+}
+#weather{
+margin-top: 30px;
+margin-left: 450px;
+margin-right: 450px;
+text-align: center;
+
+padding: 25px;
+border-radius: 15px;
+
+/* Glass effect */
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+
+background: rgba(255, 255, 255, 0.25);  /* White transparent */
+border: 1px solid rgba(255, 255, 255, 0.4);
+
+box-shadow: rgba(60, 64, 67, 0.3) 0px 8px 15px 0px,
+            rgba(60, 64, 67, 0.15) 0px 12px 22px 4px;
+
+
+}
+#weather input{
+   width: 400px;
+   height: 40px;
+    border-radius: 8px;
+    border: none;
+    font: 18px;
+}
+
+#weather button{
+    width: 100px;
+    height: 60px;
+    border-radius: 8px;
+    border: none;
+    background-color: darkslategrey;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+#weather button:hover{
+    background-color: white;
+    color: darkslategrey;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+#weather input::placeholder{
+    font-size: 18px;
+    padding-left: 10px;
+}
+#city {
+    width: 350px;
+    padding: 12px 18px;
+    border: none;
+    outline: none;
+
+    /* Rounded */
+    border-radius: 12px;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+
+    /* Text */
+    font-size: 18px;
+    color: #ffffff;
+
+    /* Remove browser default border */
+    box-shadow: none;
+}
+
+/* Remove outline on click */
+#city:focus {
+    outline: none;
+    border: none;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+
+/* Style placeholder text */
+#city::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+
+
+#result{
+    font-size: 20px;
+    color: white;
+}
+#info{
+display:none;
+margin-top: 40px;
+padding:20px;
+margin-left:450px;
+margin-right:450px;
+border-radius:12px;
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+
+background: rgba(255, 255, 255, 0.25);  /* White transparent */
+border: 1px solid rgba(255, 255, 255, 0.4);
+
+box-shadow: rgba(60, 64, 67, 0.3) 0px 8px 15px 0px,
+            rgba(60, 64, 67, 0.15) 0px 12px 22px 4px;
+}
+h1{
+color:white;
+margin-top:110px;
+text-align:center;
+font-size:46px;
+}
+#bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
