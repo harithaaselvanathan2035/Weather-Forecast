@@ -51,25 +51,19 @@ async function searchWeather() {
 
 
 function changeBackground(weather) {
-    const video = document.getElementById("bgVideo");
-    const has = arr => arr.some(word => weather.includes(word));
-
-    if (has(["clear", "sunny", "bright"])) {
-        video.src = "http://localhost:8081/videos/clearsky.mp4";
-    }
-    else if (has(["cloud", "overcast"])) {
-        video.src = "http://localhost:8081/videos/clouds.mp4";
-    }
-    else if (has(["rain", "drizzle", "shower"])) {
-        video.src = "http://localhost:8081/videos/rainy.mp4";
-    }
-    else if (has(["thunder", "storm", "lightning"])) {
-        video.src = "http://localhost:8081/videos/thunderstorm.mp4";
-    }
-    else if (has(["snow","snowfall"])) {
-        video.src = "http://localhost:8081/videos/snow.mp4";
-    }
-    else if (has(["fog", "mist", "haze","smoke"])) {
-        video.src = "http://localhost:8081/videos/fog.mp4";
+    if (weather.includes("rain")) {
+        bgVideo.src = "/videos/rainy.mp4";
+    } else if (weather.includes("cloud")) {
+        bgVideo.src = "/videos/clouds.mp4";
+    } else if (weather.includes("clear")) {
+        bgVideo.src = "/videos/clearsky.mp4";
+    } else if (weather.includes("snow")) {
+        bgVideo.src = "/videos/snow.mp4";
+    } else if (weather.includes("fog") || weather.includes("mist")) {
+        bgVideo.src = "/videos/fog.mp4";
+    } else if (weather.includes("thunder")) {
+        bgVideo.src = "/videos/thunderstorm.mp4";
+    } else {
+        bgVideo.src = "/videos/clearsky.mp4";
     }
 }
