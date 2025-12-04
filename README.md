@@ -13,41 +13,71 @@ The app displays real-time weather information using the OpenWeather API and inc
 🖼️ Features
 
 ✔ Search weather by city name
+
 ✔ Auto-detect weather type & change video background
+
 ✔ Temperature in Celsius
+
 ✔ Humidity %
+
 ✔ Wind Speed
+
 ✔ Clean glassmorphism UI
+
 ✔ Responsive design
+
 ✔ Spring Boot backend API
+
 ✔ Deployed with Docker on Render
 
 🛠️ Tech Stack
+
 Frontend
+
 HTML5
+
 CSS3
+
 JavaScript
+
 Background videos
 
 Backend
+
 Java 21
+
 Spring Boot
+
 Maven
+
 REST API
 
 Deployment
+
 Docker
+
 Render Web Service
+
 GitHub
 
 📦 Project Structure
+
 Weather-Forecast/
+
 │── src/main/java/...
+
 │── src/main/resources/static/
+
 │      ├── index.html
+
 │      ├── style.css
+
 │      ├── script.js
+
 │      └── videos/
+
 │── application.properties
+
 │── Dockerfile
+
 │── pom.xml
