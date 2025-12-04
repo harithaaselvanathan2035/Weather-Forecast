@@ -50,20 +50,79 @@ async function searchWeather() {
 
 
 
-function changeBackground(weather) {
-    if (weather.includes("rain")) {
-        bgVideo.src = "/videos/rainy.mp4";
-    } else if (weather.includes("cloud")) {
-        bgVideo.src = "/videos/clouds.mp4";
-    } else if (weather.includes("clear")) {
-        bgVideo.src = "/videos/clearsky.mp4";
-    } else if (weather.includes("snow")) {
-        bgVideo.src = "/videos/snow.mp4";
-    } else if (weather.includes("fog") || weather.includes("mist")) {
-        bgVideo.src = "/videos/fog.mp4";
-    } else if (weather.includes("thunder")) {
-        bgVideo.src = "/videos/thunderstorm.mp4";
-    } else {
-        bgVideo.src = "/videos/clearsky.mp4";
+function changeBackground(description) {
+    description = description.toLowerCase();
+    const video = document.getElementById("bgVideo");
+
+    // 🌧 RAIN & DRIZZLE
+    const rainList = [
+        "rain", "light rain", "moderate rain", "heavy rain", "shower",
+        "drizzle", "light intensity drizzle", "heavy intensity drizzle",
+        "drizzle rain", "ragged shower rain"
+    ];
+
+    // 🌩 THUNDERSTORM
+    const thunderList = [
+        "thunderstorm", "thunder", "storm", "thunderstorm with rain",
+        "thunderstorm with heavy rain", "thunderstorm with drizzle",
+        "thunderstorm with hail"
+    ];
+
+    // ❄ SNOW & ICE
+    const snowList = [
+        "snow", "light snow", "heavy snow", "sleet", "light sleet",
+        "shower sleet", "light rain and snow", "rain and snow",
+        "freezing rain", "freezing drizzle", "blizzard", "ice pellets"
+    ];
+
+    // 🌫 FOG / MIST / LOW VISIBILITY
+    const fogList = [
+        "fog", "mist", "haze", "smoke", "smog", "sand", "dust",
+        "volcanic ash", "ash", "sandstorm", "duststorm", "squalls",
+        "tornado", "funnel cloud", "freezing fog"
+    ];
+
+    // ☁ CLOUDS
+    const cloudList = [
+        "clouds", "few clouds", "scattered clouds", "broken clouds",
+        "overcast clouds", "mostly cloudy", "partly cloudy"
+    ];
+
+    // 🌞 CLEAR SKY
+    const clearList = [
+        "clear", "clear sky", "sunny", "hot"
+    ];
+
+    // 🔥 EXTREME WEATHER
+    const extremeList = [
+        "tropical storm", "hurricane", "cold", "windy", "extreme"
+    ];
+
+    // 🌡 DEFAULT VIDEO
+    let videoSrc = "/videos/clearsky.mp4";
+
+    if (rainList.some(w => description.includes(w))) {
+        videoSrc = "/videos/rainy.mp4";
     }
+    else if (thunderList.some(w => description.includes(w))) {
+        videoSrc = "/videos/thunderstorm.mp4";
+    }
+    else if (snowList.some(w => description.includes(w))) {
+        videoSrc = "/videos/snow.mp4";
+    }
+    else if (fogList.some(w => description.includes(w))) {
+        videoSrc = "/videos/fog.mp4";
+    }
+    else if (cloudList.some(w => description.includes(w))) {
+        videoSrc = "/videos/clouds.mp4";
+    }
+    else if (clearList.some(w => description.includes(w))) {
+        videoSrc = "/videos/clearsky.mp4";
+    }
+    else if (extremeList.some(w => description.includes(w))) {
+        videoSrc = "/videos/thunderstorm.mp4"; // best match
+    }
+
+    video.src = videoSrc;
 }
+
